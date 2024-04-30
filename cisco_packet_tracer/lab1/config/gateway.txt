@@ -1,0 +1,21 @@
+conf t
+interface gigabitethernet 0/0/0
+ip address 203.1.1.1 255.255.255.252
+ip nat outside
+ip ospf 20 area 20
+no shut
+exit
+
+interface gigabitethernet 0/0/1
+ip address 192.168.200.2 255.255.255.0
+ip nat inside
+no shut
+exit
+
+router ospf 20
+router-id 0.0.0.8
+network 203.1.1.0 0.0.0.3 area 20
+network 192.168.200.0 0.0.0.255 area 20
+
+end
+wr

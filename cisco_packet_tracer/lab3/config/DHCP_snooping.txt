@@ -1,0 +1,9 @@
+conf t
+ip dhcp snooping vlan 20
+interface range FastE0/1-2
+ip dhcp snooping trust
+
+interface range FastE0/3-24
+ip dhcp snooping 
+end
+wr

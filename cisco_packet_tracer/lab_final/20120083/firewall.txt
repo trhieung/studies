@@ -1,0 +1,65 @@
+conf t
+
+interface g1/1
+nameif dmz
+ip address 192.168.100.1 255.255.255.0
+security-level 70
+no shutdown
+
+interface g1/2
+nameif inside
+ip address 10.10.10.1 255.255.255.0
+security-level 100
+no shutdown
+
+interface g1/3
+nameif outside
+ip address 192.168.200.1 255.255.255.0
+security-level 0
+no shutdown
+
+route outside 0.0.0.0 0.0.0.0 192.168.200.2
+
+object network inside-outside
+subnet 10.10.0.0 255.255.0.0
+nat (inside,outside) dynamic interface
+
+object network dmz-outside
+subnet 192.168.100.0 255.255.255.0
+nat (inside,outside) dynamic interface
+
+object network webserver
+host 192.168.100.111
+nat (DMZ,outside) static 192.168.200.10
+
+object network webserver-external-ip
+host 192.168.200.10
+
+object network mailserver
+host 192.168.100.222
+nat (DMZ,outside) static 192.168.200.20
+
+object network mailserver-external-ip
+host 192.168.200.20
+
+access-list outside_acl extended permit icmp any any echo-reply
+access-list outside_acl extended permit icmp any any unreachable
+
+access-list outside_acl extended permit tcp any object webserver eq www
+access-list outside_acl extended permit tcp any host 192.168.200.10 eq www
+access-list outside_acl extended permit udp any host 192.168.200.10 eq 53
+
+access-list outside_acl extended permit tcp any object mailserver eq www
+access-list outside_acl extended permit tcp any host 192.168.200.20 eq www
+access-list outside_acl extended permit udp any host 192.168.200.20 eq 53
+
+access-list dmz_acl extended deny icmp any 10.10.0.0 255.255.0.0 echo
+access-list dmz_acl extended permit ip any any
+
+access-group outside_acl in interface outside
+access-group dmz_acl in interface DMZ
+
+router ospf 1
+net 10.10.10.0 255.255.255.0 area 0
+net 192.168.100.0 255.255.255.0 area 0
+net 192.168.200.0 255.255.255.0 area 20

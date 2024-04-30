@@ -1,0 +1,62 @@
+conf t
+
+vtp domain HCMUS
+vtp mode transparent
+
+int gigabitethernet1/0/1
+no sw
+ip add 10.10.10.2 255.255.255.0
+
+interface range gigabitethernet 1/0/23-24
+switchport mode trunk
+channel-group 13 mode desirable
+
+interface port-channel 13
+no sw
+ip address 10.10.40.1 255.255.255.0
+no shut
+
+interface port-channel 13
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+interface range gigabitethernet 1/1/1-2
+channel-group 11 mode desirable
+
+interface port-channel 11
+no sw
+ip address 10.10.20.1 255.255.255.0
+no shut
+
+interface port-channel 11
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+interface range gigabitethernet 1/1/3-4
+channel-group 12 mode desirable
+
+interface port-channel 12
+no sw
+ip address 10.10.30.1 255.255.255.0
+no shut
+
+interface port-channel 12
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+int vlan 1
+no shut
+
+ip routing 
+router ospf 1
+net 10.10.10.0 0.0.0.255 area 0
+net 10.10.40.0 0.0.0.255 area 0
+net 10.10.30.0 0.0.0.255 area 0
+net 10.10.20.0 0.0.0.255 area 0
+
+ip default-gateway 10.10.10.2
+end
+wr

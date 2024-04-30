@@ -1,0 +1,19 @@
+nano /etc/modsecurity/modsecurity.conf
+
+-----------------------------------
+nano /etc/apache2/apache2.conf
+
+<IfModule security2_module>
+	Include /usr/share/modesecurity-crs/crs-setup.conf
+	Include /usr/share/modesecurity-crs/rules/*.conf
+</IfModule>
+
+-----------------------------------------
+nano /etc/apache2/sites-enabled/000-default.conf
+
+SecRuleEngine On
+
+<IfModule security2_module>
+	Include /usr/share/modesecurity-crs/crs-setup.conf
+	Include /usr/share/modesecurity-crs/rules/*.conf
+</IfModule>

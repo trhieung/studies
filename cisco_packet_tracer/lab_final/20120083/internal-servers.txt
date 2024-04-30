@@ -1,0 +1,24 @@
+conf t
+
+interface range gigabitethernet 1/0/23-24
+switchport mode trunk
+channel-group 13 mode desirable
+
+interface port-channel 13
+no sw
+ip address 10.10.40.2 255.255.255.0
+no shut
+
+interface port-channel 13
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+int vlan 1
+ip add 10.50.50.1 255.255.255.0
+no shut
+
+ip routing 
+router ospf 1
+net 10.50.50.0 0.0.0.255 area 3
+net 10.10.40.0 0.0.0.255 area 0

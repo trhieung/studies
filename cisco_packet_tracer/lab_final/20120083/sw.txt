@@ -1,0 +1,173 @@
+-------------------------SW1---------------------------
+conf t
+
+int range FastEthernet 0/1-2
+channel-group 1 mode desirable
+
+vtp domain HCMUS1
+vtp mode client
+
+interface port-channel 1
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+int range FastEthernet 0/3-10
+switchport mode access
+switchport access vlan 10
+
+int range FastEthernet 0/11-17
+switchport mode access
+switchport access vlan 11
+
+int range FastEthernet 0/18-24
+switchport mode access
+switchport access vlan 12
+
+end
+wr
+
+-------------------------SW2---------------------------
+conf t
+
+int range FastEthernet 0/1-2
+channel-group 2 mode desirable
+
+vtp domain HCMUS1
+vtp mode client
+
+interface port-channel 2
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+int range FastEthernet 0/3-10
+switchport mode access
+switchport access vlan 12
+
+int range FastEthernet 0/11-17
+switchport mode access
+switchport access vlan 13
+
+int range FastEthernet 0/18-24
+switchport mode access
+switchport access vlan 14
+
+end
+wr
+
+-------------------------SW3---------------------------
+conf t
+
+int range FastEthernet 0/1-2
+channel-group 3 mode desirable
+
+vtp domain HCMUS1
+vtp mode client
+
+interface port-channel 3
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+int range FastEthernet 0/3-10
+switchport mode access
+switchport access vlan 13
+
+int range FastEthernet 0/11-17
+switchport mode access
+switchport access vlan 15
+
+int range FastEthernet 0/18-24
+switchport mode access
+switchport access vlan 16
+
+end 
+wr
+
+-------------------------SW4---------------------------
+conf t
+
+int range FastEthernet 0/1-2
+channel-group 4 mode desirable
+
+vtp domain HCMUS2
+vtp mode client
+
+interface port-channel 4
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+int range FastEthernet 0/3-10
+switchport mode access
+switchport access vlan 20
+
+int range FastEthernet 0/11-17
+switchport mode access
+switchport access vlan 21
+
+int range FastEthernet 0/18-24
+switchport mode access
+switchport access vlan 22
+
+end
+wr
+
+-------------------------SW5---------------------------
+conf t
+
+int range FastEthernet 0/1-2
+channel-group 5 mode desirable
+
+vtp domain HCMUS2
+vtp mode client
+
+interface port-channel 5
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+int range FastEthernet 0/3-10
+switchport mode access
+switchport access vlan 23
+
+int range FastEthernet 0/11-17
+switchport mode access
+switchport access vlan 24
+
+int range FastEthernet 0/18-24
+switchport mode access
+switchport access vlan 25
+
+end
+wr
+
+-------------------------SW6---------------------------
+conf t
+
+int range FastEthernet 0/1-2
+channel-group 6 mode desirable
+
+vtp domain HCMUS2
+vtp mode client
+
+interface port-channel 6
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+int range FastEthernet 0/3-10
+switchport mode access
+switchport access vlan 20
+
+int range FastEthernet 0/11-17
+switchport mode access
+switchport access vlan 23
+
+int range FastEthernet 0/18-24
+switchport mode access
+switchport access vlan 26
+
+end 
+wr

@@ -1,0 +1,94 @@
+conf t
+
+interface range gigabitethernet 1/1/1-2
+channel-group 12 mode desirable
+
+interface port-channel 12
+switchport mode trunk
+no sw
+ip address 10.10.30.2 255.255.255.0
+no shut
+
+interface range gigabitethernet 1/0/1-2
+channel-group 4 mode desirable
+
+interface port-channel 4
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+interface range gigabitethernet 1/0/3-4
+channel-group 5 mode desirable
+
+interface port-channel 5
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+interface range gigabitethernet 1/0/5-6
+channel-group 6 mode desirable
+
+interface port-channel 6
+switchport mode trunk
+switchport trunk allow vlan all
+no shut
+
+vtp domain HCMUS2
+vtp mode server
+
+vlan 20
+name VLAN20
+interface vlan 20
+ip helper-add 10.50.50.254
+ip address 172.20.20.1 255.255.255.0
+no shut
+
+vlan 21
+name VLAN21
+interface vlan 21
+ip helper-add 10.50.50.254
+ip address 172.20.21.1 255.255.255.0
+no shut
+
+vlan 22
+name VLAN22
+interface vlan 22
+ip helper-add 10.50.50.254
+ip address 172.20.22.1 255.255.255.0
+no shut
+
+vlan 23
+name VLAN23
+interface vlan 23
+ip helper-add 10.50.50.254
+ip address 172.20.23.1 255.255.255.0
+no shut
+
+vlan 24
+name VLAN24
+interface vlan 24
+ip helper-add 10.50.50.254
+ip address 172.20.24.1 255.255.255.0
+no shut
+
+vlan 25
+name VLAN25
+interface vlan 25
+ip helper-add 10.50.50.254
+ip address 172.20.25.1 255.255.255.0
+no shut
+
+vlan 26
+name VLAN26
+interface vlan 26
+ip helper-add 10.50.50.254
+ip address 172.20.26.1 255.255.255.0
+no shut
+
+ip routing
+router ospf 1
+net 10.10.30.0 0.0.0.255 area 0
+net 172.20.0.0 0.0.255.255 area 2
+
+end
+wr

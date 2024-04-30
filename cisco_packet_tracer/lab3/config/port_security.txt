@@ -1,0 +1,18 @@
+en
+conf t
+
+interface fa0/1
+switchport mode access
+switchport port-security
+switchport port-security mac-address 0030.A39A.2733
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+
+interface fa0/1
+switchport port-security violation shutdown
+
+end
+wr
+
+show interface switchport
+show port-security interface

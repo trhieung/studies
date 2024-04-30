@@ -1,0 +1,9 @@
+conf t
+
+interface range gigabitethernet 1/0/1-24
+switchport mod access
+switchport access vlan 1
+
+end
+wr
+----------------------
