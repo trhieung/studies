@@ -1,0 +1,2 @@
+# Bussiness_logic_vulnarabilities
+This folder contains resources related to Bussiness_logic_vulnarabilities.
