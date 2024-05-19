@@ -7,11 +7,5 @@ pipeline {
       }
     }
 
-    stage('cmd test') {
-      steps {
-        sh 'ls -la'
-      }
-    }
-
   }
 }
