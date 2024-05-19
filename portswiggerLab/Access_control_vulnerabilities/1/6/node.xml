@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Vertical privilege escalation" unique_id="6" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1715306402" ts_lastsave="1715306444">
+    <rich_text>If a user can gain access to functionality that they are not permitted to access then this is vertical privilege escalation. For example, if a non-administrative user can gain access to an admin page where they can delete user accounts, then this is vertical privilege escalation.  </rich_text>
+  </node>
+</cherrytree>

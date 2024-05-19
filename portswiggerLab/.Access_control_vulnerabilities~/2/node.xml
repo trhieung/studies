@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Unprotected functionality" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1715306281" ts_lastsave="1715307286">
+    <rich_text>1. Available for access the file through with guessing path like:
+   Adding robots.txt to the end of the page URL. With this vulnarabilities, you can also access the high account level permission following the vertical priviledge escalation. So you can access the functionality that you not permit to activate.
+2. For some implementation, They try to create the URL that not clear to detect and guess for avoiding this vulnarability (cuz they lazy on fixing this bug or build the rules systems)</rich_text>
+  </node>
+</cherrytree>

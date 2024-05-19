@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Horizontal to vertical privilege escalation" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1715306377" ts_lastsave="1715308778">
+    <rich_text>compromissing a more priviledge user 
+in the example lab, accept horizontall attack, beside of that, the html response also have the attacked user password.
+→ access with user/pwd of the verital account.</rich_text>
+  </node>
+</cherrytree>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="Server side request forgery" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1715312338" ts_lastsave="1715336438">
+    <rich_text>The purpose of this attack is getting sensitive information of internal services in a company or an organization, The attacker causes the application to make a HTTP request back to the server that is hosting the application.via its loopback network interface.
+1. Acttack another service from a service
+	Using attribute of the html request -&gt; stockApi for passing the path for ex: path: localhost/admin
+		So change to stockApi = </rich_text>
+    <rich_text link="webs http://localhost/admin">http://localhost/admin</rich_text>
+    <rich_text>
+2. SSRF against another back-end system
+      </rich_text>
+  </node>
+</cherrytree>

